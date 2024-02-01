@@ -27,8 +27,18 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _changeButtonColor() {
     setState(() {
+      //if(_buttonColor==Colors.blue){_buttonColor=Colors.red;}
+      //else{_buttonColor=Colors.blue;}
       _buttonColor = _buttonColor == Colors.blue ? Colors.red : Colors.blue;
     });
+
+    // Mostrar Snackbar con mensaje "HOLA"
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text("HOLA"),
+        duration: Duration(seconds: 2),
+      ),
+    );
   }
 
   @override
@@ -70,6 +80,14 @@ class _MyHomePageState extends State<MyHomePage> {
             SizedBox(height: 10),
             IconButton(
               icon: Icon(Icons.star, size: 40),
+              onPressed: _changeButtonColor,
+              color: _buttonColor,
+              iconSize: 50,
+              padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+            ),
+            SizedBox(height: 10),
+            IconButton(
+              icon: Icon(Icons.add, size: 40),
               onPressed: _changeButtonColor,
               color: _buttonColor,
               iconSize: 50,
